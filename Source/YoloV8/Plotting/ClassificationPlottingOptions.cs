@@ -1,4 +1,6 @@
-﻿namespace Compunet.YoloV8.Plotting;
+﻿using System.Runtime.InteropServices;
+
+namespace Compunet.YoloV8.Plotting;
 
 public class ClassificationPlottingOptions
 {
@@ -20,7 +22,14 @@ public class ClassificationPlottingOptions
 
     public ClassificationPlottingOptions()
     {
-        FontName = "Arial";
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("Android")))
+        {
+            FontName = "Roboto";
+        }
+        else
+        {
+            FontName = "Arial";
+        }
         FontSize = 40F;
         FillColorPalette = new ColorPalette("CCCCCC");
         BorderColorPalette = new ColorPalette("333333");

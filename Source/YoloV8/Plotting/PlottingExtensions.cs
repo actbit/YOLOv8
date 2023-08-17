@@ -62,7 +62,7 @@ public static class PlottingExtensions
 
                     var lineColor = options.Skeleton.GetLineColor(i);
 
-                    context.DrawLines(lineColor, lineThickness, points);
+                    context.DrawLine(lineColor, lineThickness, points);
                 }
 
                 // drawing keypoints
@@ -228,7 +228,7 @@ public static class PlottingExtensions
         var fill = options.FillColorPalette.GetColor(result.Class.Id);
         var border = options.BorderColorPalette.GetColor(result.Class.Id);
 
-        var pen = new Pen(border, options.BorderThickness * ratio);
+        var pen = new SolidPen(border, options.BorderThickness * ratio);
         var brush = new SolidBrush(fill);
         var location = new PointF(options.XOffset * ratio, options.YOffset * ratio);
 
@@ -257,7 +257,7 @@ public static class PlottingExtensions
         if (fillOpacity > 0F)
             context.Fill(color.WithAlpha(fillOpacity), polygon);
 
-        var rendered = TextMeasurer.Measure(labelText, textOptions);
+        var rendered = TextMeasurer.MeasureAdvance(labelText, textOptions);
         var renderedSize = new Size((int)(rendered.Width + textPadding), (int)rendered.Height);
 
         var location = rectangle.Location;

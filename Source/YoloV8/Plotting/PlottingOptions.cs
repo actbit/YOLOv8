@@ -1,4 +1,7 @@
-﻿namespace Compunet.YoloV8.Plotting;
+﻿using SixLabors.Fonts;
+using System.Runtime.InteropServices;
+
+namespace Compunet.YoloV8.Plotting;
 
 public class PlottingOptions
 {
@@ -14,9 +17,17 @@ public class PlottingOptions
 
     public ColorPalette ColorPalette { get; set; }
 
+
     public PlottingOptions()
     {
-        FontName = "Arial";
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Create("Android")))
+        {
+            FontName = "Roboto";
+        }
+        else
+        {
+            FontName = "Arial";
+        }
         FontSize = 12F;
         TextHorizontalPadding = 5F;
         BoxBorderThickness = 1F;

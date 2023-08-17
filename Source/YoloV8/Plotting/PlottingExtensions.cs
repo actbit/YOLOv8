@@ -25,7 +25,7 @@ public static class PlottingExtensions
 
         var ratio = Math.Max(size.Width, size.Height) / 640F;
 
-        var textOptions = new TextOptions(SystemFonts.CreateFont(options.FontName, options.FontSize * ratio));
+        var textOptions = new TextOptions(FontManager.CreateFont(options.FontName, options.FontSize * ratio));
 
         var textPadding = options.TextHorizontalPadding * ratio;
 
@@ -102,7 +102,7 @@ public static class PlottingExtensions
 
         var ratio = Math.Max(size.Width, size.Height) / 640F;
 
-        var textOptions = new TextOptions(SystemFonts.CreateFont(options.FontName, options.FontSize * ratio));
+        var textOptions = new TextOptions(FontManager.CreateFont(options.FontName, options.FontSize * ratio));
 
         var textPadding = options.TextHorizontalPadding * ratio;
 
@@ -139,7 +139,7 @@ public static class PlottingExtensions
 
         var ratio = Math.Max(size.Width, size.Height) / 640F;
 
-        var textOptions = new TextOptions(SystemFonts.CreateFont(options.FontName, options.FontSize * ratio));
+        var textOptions = new TextOptions(FontManager.CreateFont(options.FontName, options.FontSize * ratio));
 
         var textPadding = options.TextHorizontalPadding * ratio;
 
@@ -222,7 +222,7 @@ public static class PlottingExtensions
 
         var ratio = Math.Max(size.Width, size.Height) / 640F;
 
-        var textOptions = new TextOptions(SystemFonts.CreateFont(options.FontName, options.FontSize * ratio));
+        var textOptions = new TextOptions(FontManager.CreateFont(options.FontName, options.FontSize * ratio));
 
         var label = $"{result.Class.Name} {result.Confidence:N}";
         var fill = options.FillColorPalette.GetColor(result.Class.Id);
